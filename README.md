@@ -51,6 +51,12 @@ flutter pub get
 flutter run
 ```
 
+## Sample video 
+
+https://github.com/user-attachments/assets/e7871f90-77ca-4a66-b86e-45eb33ad0d44
+
+
+
 ## State Management Flow
 
 `ProductsBloc` handles:
