@@ -124,25 +124,36 @@ class _ProductListScreenState extends State<ProductListScreen> {
               onRefresh: () async {
                 context.read<ProductBloc>().add(FetchProducts());
               },
-              child: MasonryGridView.count(
-                controller: _scrollController,
-                padding: const EdgeInsets.all(16),
-                crossAxisCount: 2,
-                mainAxisSpacing: 16,
-                crossAxisSpacing: 16,
-                itemCount: state.hasReachedMax
-                    ? state.products.length
-                    : state.products.length + 1,
-                itemBuilder: (context, index) {
-                  if (index >= state.products.length) {
-                    return const Center(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 16),
-                        child: CircularProgressIndicator(),
-                      ),
-                    );
-                  }
-                  return ProductCard(product: state.products[index]);
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  // Adjust the number of columns based on screen width
+                  int crossAxisCount = constraints.maxWidth > 1200
+                      ? 4
+                      : constraints.maxWidth > 800
+                          ? 3
+                          : 2;
+
+                  return MasonryGridView.count(
+                    controller: _scrollController,
+                    padding: const EdgeInsets.all(16),
+                    crossAxisCount: crossAxisCount,
+                    mainAxisSpacing: 16,
+                    crossAxisSpacing: 16,
+                    itemCount: state.hasReachedMax
+                        ? state.products.length
+                        : state.products.length + 1,
+                    itemBuilder: (context, index) {
+                      if (index >= state.products.length) {
+                        return const Center(
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(vertical: 16),
+                            child: CircularProgressIndicator(),
+                          ),
+                        );
+                      }
+                      return ProductCard(product: state.products[index]);
+                    },
+                  );
                 },
               ),
             );
