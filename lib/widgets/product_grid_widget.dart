@@ -20,10 +20,14 @@ class ProductGridWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final crossAxisCount =
+        (screenWidth / 200).floor(); // Adjust 200 to your desired tile width
+
     return MasonryGridView.count(
       controller: scrollController,
       padding: const EdgeInsets.all(16),
-      crossAxisCount: 2,
+      crossAxisCount: crossAxisCount,
       mainAxisSpacing: 16,
       crossAxisSpacing: 16,
       itemCount: isLoading ? products.length + 1 : products.length,
