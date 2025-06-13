@@ -126,13 +126,11 @@ class _ProductListScreenState extends State<ProductListScreen> {
               },
               child: LayoutBuilder(
                 builder: (context, constraints) {
-                  // Adjust the number of columns based on screen width
                   int crossAxisCount = constraints.maxWidth > 1200
                       ? 4
                       : constraints.maxWidth > 800
                           ? 3
                           : 2;
-
                   return MasonryGridView.count(
                     controller: _scrollController,
                     padding: const EdgeInsets.all(16),
@@ -158,7 +156,6 @@ class _ProductListScreenState extends State<ProductListScreen> {
               ),
             );
           }
-
           return const SizedBox();
         },
       ),

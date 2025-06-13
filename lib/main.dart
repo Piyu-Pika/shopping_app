@@ -10,7 +10,6 @@ import 'services/product_service.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Set up BLoC observer for debugging
   Bloc.observer = AppBlocObserver();
 
   runApp(const MyApp());

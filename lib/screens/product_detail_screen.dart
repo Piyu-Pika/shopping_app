@@ -22,7 +22,6 @@ class ProductDetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Product Image Carousel
             SizedBox(
               height: 300,
               child: PageView.builder(
@@ -98,8 +97,6 @@ class ProductDetailScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-
-                  // Price Information
                   Row(
                     children: [
                       Text(
@@ -139,10 +136,7 @@ class ProductDetailScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-
                   const SizedBox(height: 8),
-
-                  // Stock Information
                   Row(
                     children: [
                       const Icon(
@@ -160,10 +154,7 @@ class ProductDetailScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-
                   const SizedBox(height: 16),
-
-                  // Description
                   const Text(
                     'Description',
                     style: TextStyle(
@@ -179,10 +170,7 @@ class ProductDetailScreen extends StatelessWidget {
                       height: 1.5,
                     ),
                   ),
-
                   const SizedBox(height: 24),
-
-                  // Add to Cart Button
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton.icon(
